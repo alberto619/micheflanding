@@ -123,9 +123,9 @@ body{overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(calc
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1698998988025454');fbq('track','PageView');fbq('track','ViewContent',{content_name:'MI CHEF',content_type:'product',content_ids:['mi-chef'],value:119,currency:'MXN'});
-const https://pay.hotmart.com/E107663335N='https://pay.hotmart.com/E107663335N',q=new URLSearchParams(location.search),keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid'],attr={};
+const CHECKOUT_URL='https://pay.hotmart.com/E107663335N',q=new URLSearchParams(location.search),keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid'],attr={};
 keys.forEach(k=>{const v=q.get(k);if(v)sessionStorage.setItem('mc_'+k,v);attr[k]=v||sessionStorage.getItem('mc_'+k)||''});
-function cu(){const u=new URL(https://pay.hotmart.com/E107663335N);keys.forEach(k=>{if(attr[k])u.searchParams.set(k,attr[k])});if(attr.utm_content)u.searchParams.set('src',attr.utm_content);return u.toString()}
+function cu(){const u=new URL(CHECKOUT_URL);keys.forEach(k=>{if(attr[k])u.searchParams.set(k,attr[k])});if(attr.utm_content)u.searchParams.set('src',attr.utm_content);return u.toString()}
 document.querySelectorAll('.checkout').forEach(a=>{a.href=cu();a.addEventListener('click',()=>{try{fbq('track','InitiateCheckout',{value:119,currency:'MXN',content_name:'MI CHEF',content_ids:['mi-chef']});fbq('trackCustom','MI_CHEF_CTA_Click',{placement:a.dataset.place||'unknown',...attr})}catch(e){}})})
 </script>
 <script>
