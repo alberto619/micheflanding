@@ -18,10 +18,18 @@ body{overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(calc
 .final{padding:70px 0 120px;text-align:center}.final h2{font-size:clamp(40px,11vw,78px);line-height:.9;letter-spacing:-.065em;margin:0 auto 24px;max-width:900px}.sticky{position:fixed;z-index:50;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));min-height:54px;border-radius:15px;background:linear-gradient(135deg,#ffd08b,#e99a3f);color:#17110a;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:1000;box-shadow:0 10px 30px #000a}
 @media(max-width:700px){.hero{min-height:88svh;padding:50px 0 35px;align-items:flex-end}.heroimg{inset:0;width:100%;height:58%;object-position:center top;opacity:.72}.hero:after{background:linear-gradient(0deg,#080807 32%,rgba(8,8,7,.1) 72%),linear-gradient(90deg,rgba(8,8,7,.25),transparent)}.copy{padding-top:42vh}.lead{font-size:16px}.rail{grid-auto-columns:88vw}.slide{min-height:485px}.head{align-items:flex-start;flex-direction:column}.strip{padding:44px 0 52px}}
 @media(min-width:850px){.sticky{left:auto;right:22px;width:320px}.rail{grid-auto-columns:430px}}
+
+.visual{position:relative;min-height:245px;margin:-24px -24px 20px;overflow:hidden;border-radius:25px 25px 18px 18px;background:#0b0a09}
+.visual img{width:100%;height:245px;display:block;object-fit:cover;object-position:center}
+.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#11100e 0%,transparent 58%)}
+.visualTag{position:absolute;z-index:2;left:18px;bottom:16px;font-size:12px;font-weight:950;letter-spacing:.1em;color:#ffd08b}
+.slide.withImage{justify-content:flex-start;min-height:510px}
+.slide.withImage h3{margin-top:4px}
+@media(max-width:700px){.visual,.visual img{height:220px;min-height:220px}.slide.withImage{min-height:475px}}
 </style></head><body>
 
 <section class="hero">
-<img class="heroimg" src="mi-chef-referencia.png" alt="MI CHEF en una cocina">
+<img class="heroimg" src="https://alberto619.github.io/micheflanding/decide.webp" alt="MI CHEF en una cocina">
 <div class="wrap"><div class="copy"><div class="logo">MI <span>CHEF</span></div><div class="tag">TU CHEF PERSONAL CON IA</div>
 <h1>¿NO SABES QUÉ COCINAR?</h1><p class="lead">Dile qué tienes, qué se te antoja o qué necesitas organizar. MI CHEF te ayuda con ideas, menús, sustituciones y listas del súper.</p>
 <div class="offer">3 DÍAS GRATIS<small>Después $119 MXN/mes</small></div>
@@ -38,9 +46,11 @@ body{overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(calc
 
 <section class="strip"><div class="wrap head"><h2>MUCHO MÁS QUE DECIRTE QUÉ COMER HOY.</h2><div class="swipe">DESLIZA →</div></div>
 <div class="rail">
-<article class="slide"><div><div class="num">01</div><h3>COCINA CON LO QUE TIENES</h3><p>Dile qué hay en tu cocina y busca opciones con eso.</p></div><div class="benefit"><div class="ico">⚡</div><div><b>Ideas al instante</b><span>Menos vueltas. Más soluciones concretas.</span></div></div></article>
-<article class="slide"><div><div class="num">02</div><h3>CREA MENÚS Y LISTAS DEL SÚPER</h3><p>Organiza varios días y convierte el menú en una lista práctica.</p></div><div class="benefit"><div class="ico">🛒</div><div><b>Todo conectado</b><span>Pregunta, ajusta y sigue desde la misma conversación.</span></div></div></article>
-<article class="slide"><div><div class="num">03</div><h3>ADAPTA RECETAS</h3><p>Cambia cantidades, preparaciones o ingredientes según lo que tengas y prefieras.</p></div><div class="benefit"><div class="ico">↻</div><div><b>No empieces de cero</b><span>MI CHEF puede recordar conversaciones y preferencias para ayudarte mejor.</span></div></div></article>
+<article class="slide withImage"><div class="visual"><img src="https://alberto619.github.io/micheflanding/pantry.webp" loading="lazy" decoding="async" alt="Ingredientes disponibles en casa"><span class="visualTag">CON LO QUE YA TIENES</span></div><div><div class="num">01</div><h3>COCINA CON LO QUE TIENES</h3><p>Dile qué hay en tu cocina y MI CHEF te propone qué hacer con eso.</p></div></article>
+<article class="slide withImage"><div class="visual"><img src="https://alberto619.github.io/micheflanding/week.webp" loading="lazy" decoding="async" alt="Comidas organizadas para varios días"><span class="visualTag">TU SEMANA RESUELTA</span></div><div><div class="num">02</div><h3>ARMA TU MENÚ</h3><p>Pídele un menú sencillo para varios días y ajústalo hablando con MI CHEF.</p></div></article>
+<article class="slide withImage"><div class="visual"><img src="https://alberto619.github.io/micheflanding/shopping.webp" loading="lazy" decoding="async" alt="Compra de ingredientes"><span class="visualTag">COMPRA SOLO LO NECESARIO</span></div><div><div class="num">03</div><h3>HAZ LA LISTA DEL SÚPER</h3><p>Convierte el menú en una lista práctica sin volver a organizar todo desde cero.</p></div></article>
+<article class="slide withImage"><div class="visual"><img src="https://alberto619.github.io/micheflanding/budget.webp" loading="lazy" decoding="async" alt="Comida preparada para cuidar el presupuesto"><span class="visualTag">GASTA CON MÁS INTENCIÓN</span></div><div><div class="num">04</div><h3>QUIERO GASTAR MENOS</h3><p>Dile tu objetivo y pregúntale cómo aprovechar mejor lo que ya tienes y lo que vas a comprar.</p></div></article>
+<article class="slide withImage"><div class="visual"><img src="https://alberto619.github.io/micheflanding/fast.webp" loading="lazy" decoding="async" alt="Comida rápida preparada en sartén"><span class="visualTag">IDEAS AL INSTANTE</span></div><div><div class="num">05</div><h3>ALGO RÁPIDO. SIN DAR VUELTAS.</h3><p>Cuando tienes hambre y cero ganas de pensar, pregúntale y pasa directo a una opción concreta.</p></div></article>
 <article class="slide priceSlide"><div class="num">PRUÉBALO ANTES DE DECIDIR</div><div class="free">3 DÍAS GRATIS</div><div>Después</div><div class="price">$119 MXN / MES</div><a class="cta checkout" data-place="rail-price" href="https://pay.hotmart.com/E107663335N">EMPEZAR GRATIS</a><p class="note">Se requiere método de pago.</p></article>
 </div></section>
 
@@ -50,6 +60,7 @@ body{overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(calc
 <details><summary>¿Cuánto cuesta?</summary><p>Los primeros 3 días son gratuitos. Después, $119 MXN al mes.</p></details>
 <details><summary>¿Necesito una forma de pago?</summary><p>Sí. Hotmart solicita un método de pago para activar la prueba.</p></details></div></section>
 
+<section class="strip"><div class="wrap"><div style="position:relative;overflow:hidden;border-radius:28px;min-height:360px"><img src="https://alberto619.github.io/micheflanding/decide.webp" loading="lazy" decoding="async" alt="MI CHEF ayuda a decidir qué cocinar" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(90deg,#090807 0%,rgba(9,8,7,.75) 48%,rgba(9,8,7,.08) 100%)"></div><div style="position:relative;z-index:2;padding:36px;max-width:520px"><div class="num">CUANDO NO SABES QUÉ HACER</div><h2 style="font-size:clamp(36px,9vw,62px);line-height:.92;letter-spacing:-.06em;margin:14px 0 18px">ABRE EL REFRI.<br>PREGÚNTALE A MI CHEF.</h2><a class="cta checkout" data-place="image-close" href="https://pay.hotmart.com/E107663335N">PROBAR 3 DÍAS GRATIS</a></div></div></div></section>
 <section class="final"><div class="wrap"><h2>ABRE EL REFRI.<br>NO SABES QUÉ HACER.<br><span style="color:var(--gold)">PREGÚNTALE A MI CHEF.</span></h2><a class="cta checkout" data-place="final" href="https://pay.hotmart.com/E107663335N">PROBAR MI CHEF GRATIS</a></div></section>
 <a class="sticky checkout" data-place="sticky" href="https://pay.hotmart.com/E107663335N">PROBAR 3 DÍAS GRATIS →</a>
 
