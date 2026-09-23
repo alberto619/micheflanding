@@ -73,6 +73,20 @@ body{overflow-x:hidden}a{text-decoration:none;color:inherit}.wrap{width:min(calc
  .hero .copy{padding:22px 18px;border-radius:22px;background:linear-gradient(180deg,rgba(8,7,6,.48),rgba(8,7,6,.70))}
  .hero h1{font-size:clamp(39px,11vw,58px)}
 }
+
+.railWrap{position:relative}
+.railArrow{display:none}
+@media(min-width:760px){
+  .rail{cursor:grab;user-select:none;scroll-behavior:smooth}
+  .rail.dragging{cursor:grabbing;scroll-snap-type:none}
+  .railArrow{
+    display:grid;place-items:center;position:absolute;z-index:12;top:50%;
+    width:48px;height:48px;border:1px solid rgba(32,26,21,.18);border-radius:50%;
+    background:rgba(255,250,242,.94);color:#201a15;font-size:24px;font-weight:900;
+    box-shadow:0 8px 25px rgba(40,25,12,.18);cursor:pointer;transform:translateY(-50%)
+  }
+  .railArrow.prev{left:18px}.railArrow.next{right:18px}
+}
 </style></head><body>
 
 <section class="hero">
@@ -113,4 +127,40 @@ const https://pay.hotmart.com/E107663335N='https://pay.hotmart.com/E107663335N',
 keys.forEach(k=>{const v=q.get(k);if(v)sessionStorage.setItem('mc_'+k,v);attr[k]=v||sessionStorage.getItem('mc_'+k)||''});
 function cu(){const u=new URL(https://pay.hotmart.com/E107663335N);keys.forEach(k=>{if(attr[k])u.searchParams.set(k,attr[k])});if(attr.utm_content)u.searchParams.set('src',attr.utm_content);return u.toString()}
 document.querySelectorAll('.checkout').forEach(a=>{a.href=cu();a.addEventListener('click',()=>{try{fbq('track','InitiateCheckout',{value:119,currency:'MXN',content_name:'MI CHEF',content_ids:['mi-chef']});fbq('trackCustom','MI_CHEF_CTA_Click',{placement:a.dataset.place||'unknown',...attr})}catch(e){}})})
-</script></body></html>
+</script>
+<script>
+document.querySelectorAll('.rail').forEach(rail=>{
+  const wrap=document.createElement('div');
+  wrap.className='railWrap';
+  rail.parentNode.insertBefore(wrap,rail);
+  wrap.appendChild(rail);
+
+  const prev=document.createElement('button'), next=document.createElement('button');
+  prev.className='railArrow prev'; next.className='railArrow next';
+  prev.type='button'; next.type='button'; prev.setAttribute('aria-label','Anterior'); next.setAttribute('aria-label','Siguiente');
+  prev.innerHTML='‹'; next.innerHTML='›';
+  wrap.append(prev,next);
+
+  const step=()=>Math.min(430,rail.clientWidth*.82);
+  prev.onclick=()=>rail.scrollBy({left:-step(),behavior:'smooth'});
+  next.onclick=()=>rail.scrollBy({left:step(),behavior:'smooth'});
+
+  let down=false,startX=0,startLeft=0,moved=false;
+  rail.addEventListener('pointerdown',e=>{
+    if(e.pointerType==='mouse'){
+      down=true;moved=false;startX=e.clientX;startLeft=rail.scrollLeft;
+      rail.classList.add('dragging');rail.setPointerCapture(e.pointerId);
+    }
+  });
+  rail.addEventListener('pointermove',e=>{
+    if(!down)return;
+    const dx=e.clientX-startX;
+    if(Math.abs(dx)>4)moved=true;
+    rail.scrollLeft=startLeft-dx;
+  });
+  const stop=e=>{if(!down)return;down=false;rail.classList.remove('dragging');try{rail.releasePointerCapture(e.pointerId)}catch(_){}};
+  rail.addEventListener('pointerup',stop);rail.addEventListener('pointercancel',stop);
+  rail.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+});
+</script>
+</body></html>
